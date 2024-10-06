@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed;s calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="screen">
+            <h1 id="display">0</h1>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="addToScreen('7')">7</button>
+            <button class="btn" onclick="addToScreen('8')">8</button>
+            <button class="btn" onclick="addToScreen('9')">9</button>
+            <button class="btn operator" onclick="addToScreen('/')">÷</button>
+
+            <button class="btn" onclick="addToScreen('4')">4</button>
+            <button class="btn" onclick="addToScreen('5')">5</button>
+            <button class="btn" onclick="addToScreen('6')">6</button>
+            <button class="btn operator" onclick="addToScreen('*')">×</button>
+
+            <button class="btn" onclick="addToScreen('1')">1</button>
+            <button class="btn" onclick="addToScreen('2')">2</button>
+            <button class="btn" onclick="addToScreen('3')">3</button>
+            <button class="btn operator" onclick="addToScreen('-')">-</button>
+
+            <button class="btn" onclick="addToScreen('0')">0</button>
+            <button class="btn" onclick="addToScreen('.')">.</button>
+            <button class="btn equal" onclick="calculate()">=</button>
+            <button class="btn operator" onclick="addToScreen('+')">+</button>
+
+            <button class="btn clear" onclick="clearScreen()">C</button>
+        </div>
+    </div>
+
+    <script>
+        let expression = '';
+
+        function addToScreen(value) {
+            expression += value;
+            document.getElementById('display').innerHTML = expression;
+        }
+
+        function calculate() {
+            try {
+                expression = eval(expression);  // حساب النتيجة
+                document.getElementById('display').innerHTML = expression;
+            } catch (error) {
+                document.getElementById('display').innerHTML = "خطأ";
+            }
+        }
+
+        function clearScreen() {
+            expression = '';
+            document.getElementById('display').innerHTML = '0';
+        }
+    </script>
+</body>
+</html>
